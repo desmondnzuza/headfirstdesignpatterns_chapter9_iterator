@@ -19,8 +19,8 @@ namespace MenuTestDrive
 
         public void PrintMenu()
         {
-            IEnumerator<IMenuItem> pancakeIterator = _pancakeHouseMenu.CreateIterator(); //TODO: add implementation here
-            IEnumerator<IMenuItem> dinerIterator = _dinerMenu.CreateIterator();   //TODO: add implementation here
+            IEnumerator<IMenuItem> pancakeIterator = _pancakeHouseMenu.CreateIterator();
+            IEnumerator<IMenuItem> dinerIterator = _dinerMenu.CreateIterator();
 
             Console.WriteLine("MENU====\nBREAKFAST");
             PrintMenu(pancakeIterator);
