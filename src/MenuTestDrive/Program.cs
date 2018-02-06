@@ -1,5 +1,4 @@
 ﻿using System;
-using MenuTestDrive.MenuItems;
 using MenuTestDrive.Menus;
 
 namespace MenuTestDrive
