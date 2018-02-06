@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using MenuTestDrive.Iterators;
 using MenuTestDrive.MenuItems;
 
@@ -42,7 +43,7 @@ namespace MenuTestDrive.Menus
             _numberOfItems++;
         }
 
-        public IIterator CreateIterator()
+        public IEnumerator<IMenuItem> CreateIterator()
         {
             return new DinerMenuIterator(_menuItems);
         }

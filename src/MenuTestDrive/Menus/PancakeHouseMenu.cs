@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using MenuTestDrive.Iterators;
 using MenuTestDrive.MenuItems;
 
 namespace MenuTestDrive.Menus
@@ -29,9 +28,9 @@ namespace MenuTestDrive.Menus
             _menuItems.Add(menuItem);
         }
 
-        public IIterator CreateIterator()
+        public IEnumerator<IMenuItem> CreateIterator()
         {
-            return new PancakeMenuIterator(_menuItems);
+            return _menuItems.GetEnumerator();
         }
     }
 }

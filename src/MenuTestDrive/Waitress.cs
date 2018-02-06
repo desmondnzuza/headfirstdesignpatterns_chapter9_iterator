@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using MenuTestDrive.Iterators;
 using MenuTestDrive.MenuItems;
 using MenuTestDrive.Menus;
@@ -18,8 +19,8 @@ namespace MenuTestDrive
 
         public void PrintMenu()
         {
-            IIterator pancakeIterator = _pancakeHouseMenu.CreateIterator(); //TODO: add implementation here
-            IIterator dinerIterator = _dinerMenu.CreateIterator();   //TODO: add implementation here
+            IEnumerator<IMenuItem> pancakeIterator = _pancakeHouseMenu.CreateIterator(); //TODO: add implementation here
+            IEnumerator<IMenuItem> dinerIterator = _dinerMenu.CreateIterator();   //TODO: add implementation here
 
             Console.WriteLine("MENU====\nBREAKFAST");
             PrintMenu(pancakeIterator);
@@ -28,11 +29,11 @@ namespace MenuTestDrive
             PrintMenu(dinerIterator);
         }
 
-        private void PrintMenu(IIterator iterator)
+        private void PrintMenu(IEnumerator<IMenuItem> iterator)
         {
-            while (iterator.HasNext())
+            while (iterator.MoveNext())
             {
-                IMenuItem menuItem = (IMenuItem) iterator.Next();
+                IMenuItem menuItem = iterator.Current;
                 Console.Write($"{menuItem.GetName()}, ");
                 Console.Write($"R{menuItem.GetPrice()} --");
                 Console.WriteLine(menuItem.GetDescription());
