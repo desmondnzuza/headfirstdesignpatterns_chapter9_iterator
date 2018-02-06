@@ -6,12 +6,18 @@ namespace MenuTestDrive.Iterators
 {
     class DinerMenuIterator : IEnumerator<IMenuItem>
     {
+        public IMenuItem Current => GetCurrent();
         private readonly IMenuItem[] _items;
         private int _position = 0;
 
         public DinerMenuIterator(IMenuItem[] items)
         {
             _items = items;
+        }
+
+        object IEnumerator.Current
+        {
+            get => GetCurrent();
         }
 
         public bool MoveNext()
@@ -29,18 +35,11 @@ namespace MenuTestDrive.Iterators
             _position = 0;
         }
 
-        public IMenuItem Current => GetCurrent();
-
-        object IEnumerator.Current
-        {
-            get => GetCurrent();
-        }
-
         public void Dispose()
         {
             _position = 0;
         }
-
+        
         private IMenuItem GetCurrent()
         {
             IMenuItem nextItem = _items[_position];
